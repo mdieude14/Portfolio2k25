@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/data/constants";
 import Typewriter from "typewriter-effect";
-import logoPHP from "../../assets/image/logoPHP.jpg";
 import IMG_profile from "../../assets/image/IMG_profile.jpeg";
 import { Tilt } from "react-tilt";
 import { motion } from "framer-motion";
