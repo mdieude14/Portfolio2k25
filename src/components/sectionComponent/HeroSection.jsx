@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/data/constants";
-import Typewriter from "typewriter-effect";
+import TypeIt from "typeit-react";
 import IMG_profile from "../../assets/image/IMG_profile.jpeg";
-import { Tilt } from "react-tilt";
+import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
 import {
   headContainerAnimation,
@@ -206,27 +206,26 @@ const HeroSection = () => {
 
       // Création d'un élément <a> invisible
       const link = document.createElement("a");
-      
+
       // Configuration du lien avec le PDF importé
       link.href = pdfFile;
       link.download = "Dieude_Martin.pdf"; // Nom du fichier pour le téléchargement
       link.target = "_blank"; // Ouvre dans un nouvel onglet si le téléchargement direct échoue
-      
+
       // Style pour cacher le lien
       link.style.display = "none";
-      
+
       // Ajout temporaire au DOM
       document.body.appendChild(link);
-      
+
       // Déclenchement du téléchargement
       link.click();
-      
+
       // Nettoyage après un court délai pour assurer le début du téléchargement
       setTimeout(() => {
         document.body.removeChild(link);
         setLoader(false);
       }, 100);
-
     } catch (error) {
       console.error("Erreur de téléchargement:", error);
       setError("Une erreur est survenue lors du téléchargement du CV");
@@ -236,7 +235,9 @@ const HeroSection = () => {
 
   return (
     <div id="About">
-      <HeroContainer> <Stars />
+      <HeroContainer>
+        {" "}
+        <Stars />
         <motion.div {...headContainerAnimation}>
           <HeroInnerContainer>
             <HeroLeftContainer>
@@ -246,11 +247,23 @@ const HeroSection = () => {
                     Bonjour, je suis <br /> {Bio.name}
                   </Title>
                   <TextLoop>
-                     je suis un
+                    je suis un
                     <Span>
-                      <Typewriter
+                      <TypeIt
+                        getBeforeInit={(instance) => {
+                          // Utiliser forEach pour itérer sur chaque rôle dans Bio.roles
+                          Bio.roles.forEach((role, index) => {
+                            // Ajouter chaque rôle avec une pause après chaque rôle sauf le dernier
+                            instance.type(role);
+                            if (index < Bio.roles.length - 1) {
+                              instance.pause(1000).delete(role.length); // Pause de 1 seconde et effacer le rôle actuel
+                            }
+                          });
+
+                          // Retourner l'instance modifiée
+                          return instance;
+                        }}
                         options={{
-                          strings: Bio.roles,
                           autoStart: true,
                           loop: true,
                         }}
@@ -261,7 +274,7 @@ const HeroSection = () => {
                 <motion.div {...headContentAnimation}>
                   <SubTitle>{Bio.description}</SubTitle>
                 </motion.div>
-                <ResumeButton 
+                <ResumeButton
                   onClick={handleDownloadCV}
                   disabled={loader}
                   style={{ opacity: loader ? 0.7 : 1 }}
@@ -269,7 +282,13 @@ const HeroSection = () => {
                   {loader ? "Téléchargement en cours..." : "Télécharger mon CV"}
                 </ResumeButton>
                 {error && (
-                  <div style={{ color: "red", marginTop: "10px", textAlign: "center" }}>
+                  <div
+                    style={{
+                      color: "red",
+                      marginTop: "10px",
+                      textAlign: "center",
+                    }}
+                  >
                     {error}
                   </div>
                 )}

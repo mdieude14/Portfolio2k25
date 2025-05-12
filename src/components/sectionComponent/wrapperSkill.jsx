@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import styled from "styled-components";
 import { SkillCard } from "../../data/data/dataSkillCard";
-import { Tilt } from "react-tilt";
+import Tilt from 'react-parallax-tilt';
 import {
   ArrowBackCircleOutline,
   ArrowForwardCircleOutline,
