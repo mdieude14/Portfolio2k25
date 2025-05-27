@@ -21,6 +21,7 @@ import botpress from './botpressLogo.png';
 import spline from './splineLogo.jpg';
 import noSql from './logoNoSQL.jpg';
 import mysql from './logoSql.png';
+import n8n from './n8nLogo.png';
 
 
 export {
@@ -47,4 +48,5 @@ export {
   spline,
   noSql,
   mysql,
+  n8n,
 };

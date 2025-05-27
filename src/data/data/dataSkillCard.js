@@ -24,6 +24,7 @@ import {
   spline,
   noSql,
   mysql,
+  n8n,
   } from "../../assets/imgCardSkill/index";
 
 
@@ -212,5 +213,13 @@ import {
           description: "est un langage de programmation permettant de manipuler les données et les systèmes de bases de données relationnelles.",
           category: "backend",
           color: "#113960",
+        },
+        {
+          name: "n8n",
+          img: n8n,
+          numberPourcent: 60,
+          description: "un outil d'automatisation des flux de travail qui vous permet d'automatiser les processus métier, de synchroniser les données entre les applications et de créer des produits ou des services .",
+          category: "frontend",
+          color:"#e24771",
         },
       ];
