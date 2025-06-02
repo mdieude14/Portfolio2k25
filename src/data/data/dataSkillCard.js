@@ -137,7 +137,7 @@ import {
         {
           name: "Three JS",
           img: threejs,
-          numberPourcent: 70,
+          numberPourcent: 60,
           description: "Three.js est une bibliothèque JavaScript pour créer des scènes 3D et des objets dans le navigateur.",
           category: "frontend",
           color:"#080808",

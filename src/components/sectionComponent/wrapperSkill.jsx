@@ -2,11 +2,9 @@ import React, { useState, useEffect, useMemo, useCallback } from "react";
 import styled from "styled-components";
 import { SkillCard } from "../../data/data/dataSkillCard";
 import Tilt from 'react-parallax-tilt';
-import {
-  ArrowBackCircleOutline,
-  ArrowForwardCircleOutline,
-} from "react-ionicons";
-import { IonIcon } from "@ionic/react";
+import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+
 import  Stars  from "../Canvas/Stars";
 
 const data = SkillCard;
@@ -167,7 +165,7 @@ const Arrow = styled.div`
   }
 
   &.right {
-    margin-left: 10px;
+    margin-left: 5px;
   }
 `;
 
@@ -478,8 +476,7 @@ const WrapperSkill = () => {
           {filteredBoxes.length > 0 && (
             <>
               <Arrow className="left" onClick={() => handleArrowClick(-1)}>
-                <IonIcon
-                  icon={ArrowBackCircleOutline}
+                <ArrowBackIcon
                   style={{
                     color: "#000000",
                     height: "100px",
@@ -492,8 +489,7 @@ const WrapperSkill = () => {
                 <CardSkill key={card.id} {...card} />
               ))}
               <Arrow className="right" onClick={() => handleArrowClick(1)}>
-                <IonIcon
-                  icon={ArrowForwardCircleOutline}
+                <ArrowForwardIcon
                   style={{
                     color: "#000000",
                     height: "100px",

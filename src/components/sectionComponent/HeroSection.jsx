@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/data/constants";
-import TypeIt from "typeit-react";
+import Typewriter from "typewriter-effect";
 import IMG_profile from "../../assets/image/IMG_profile.jpeg";
 import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
@@ -249,21 +249,9 @@ const HeroSection = () => {
                   <TextLoop>
                     je suis un
                     <Span>
-                      <TypeIt
-                        getBeforeInit={(instance) => {
-                          // Utiliser forEach pour itérer sur chaque rôle dans Bio.roles
-                          Bio.roles.forEach((role, index) => {
-                            // Ajouter chaque rôle avec une pause après chaque rôle sauf le dernier
-                            instance.type(role);
-                            if (index < Bio.roles.length - 1) {
-                              instance.pause(1000).delete(role.length); // Pause de 1 seconde et effacer le rôle actuel
-                            }
-                          });
-
-                          // Retourner l'instance modifiée
-                          return instance;
-                        }}
+                    <Typewriter
                         options={{
+                          strings: Bio.roles,
                           autoStart: true,
                           loop: true,
                         }}

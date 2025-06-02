@@ -3,6 +3,7 @@ import { Canvas, useThree } from "@react-three/fiber";
 import { Decal, Float, OrbitControls, Preload, useTexture } from "@react-three/drei";
 import CanvasLoader from "../CanvasLoader";
 
+
 const Ball = (props) => {
   const [decal] = useTexture([props.imgUrl]);
   const { gl } = useThree();
