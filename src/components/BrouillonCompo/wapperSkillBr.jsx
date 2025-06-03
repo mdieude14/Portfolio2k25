@@ -17,9 +17,13 @@ const WrapperSkillContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 50px 20px;
   height: 100%;
   background: #4444445b;
+
+  @media (max-width: 768px) {
+    padding: 30px 10px;
+  }
 `;
 const LegendWappep = styled.h4`
   font-size: 1.6rem;
@@ -137,6 +141,12 @@ const WrapperCompetence = styled.div`
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   backdrop-filter: blur(25px);
+
+  @media (max-width: 768px) {
+    height: auto;
+    min-height: 500px;
+    padding: 20px 10px;
+  }
 `;
 
 const WapperCardContainer = styled.div`
@@ -145,6 +155,13 @@ const WapperCardContainer = styled.div`
   align-items: center;
   width: 100%;
   height: 100%;
+  gap: 20px;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
 `;
 const Arrow = styled.div`
   display: flex;
@@ -168,6 +185,25 @@ const Arrow = styled.div`
   &.right {
     margin-left: 10px;
   }
+
+  @media (max-width: 768px) {
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+
+    &.left {
+      left: 0;
+      margin-right: 0;
+    }
+
+    &.right {
+      right: 0;
+      margin-left: 0;
+    }
+  }
 `;
 
 // styled components de la section cardSkill
@@ -176,6 +212,11 @@ const CardSkillContainer = styled.div`
   width: 360px;
   margin: 0 10px 5px;
   padding: 20px;
+
+  @media (max-width: 768px) {
+    width: 300px;
+    margin: 0;
+  }
 `;
 
 const CardComptence = styled.span`
@@ -391,6 +432,16 @@ const WrapperSkill = () => {
   const [isBackEndActive, setIsBackEndActive] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [boxes, setBoxes] = useState([]);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const initialBoxes = SkillCard.map((card) => ({
@@ -408,7 +459,7 @@ const WrapperSkill = () => {
   };
 
   const handleArrowClick = (direction) => {
-    const groupSize = 3;
+    const groupSize = isMobile ? 2 : 3;
     const totalBoxes = filteredBoxes.length;
     
     if (totalBoxes === 0) return;
@@ -429,7 +480,7 @@ const WrapperSkill = () => {
   };
 
   const getDisplayedBoxes = () => {
-    const groupSize = 3;
+    const groupSize = isMobile ? 2 : 3;
     const startIndex = currentIndex * groupSize;
     let endIndex = startIndex + groupSize;
     
@@ -471,21 +522,21 @@ const WrapperSkill = () => {
           }`}
         >
           <BtnSwitch
-        className={`btnswitch ${isBackEndActive ? "btnSwitchActive" : ""}`}
-        onClick={handleSwitchClick}
+            className={`btnswitch ${isBackEndActive ? "btnSwitchActive" : ""}`}
+            onClick={handleSwitchClick}
           ></BtnSwitch>
         </ContainBtnSwitch>
         <h3 className="hFront">compétences: Front-end</h3>
       </ContainerSwitch>
       <WrapperCompetence>
-      <WapperCardContainer>
+        <WapperCardContainer>
           <Arrow className="left" onClick={() => handleArrowClick(-1)}>
             <IonIcon
               icon={ArrowBackCircleOutline}
               style={{
                 color: "#000000",
-                height: "100px",
-                width: "100px",
+                height: isMobile ? "60px" : "100px",
+                width: isMobile ? "60px" : "100px",
               }}
               title="fleche gauche"
             />
@@ -498,13 +549,13 @@ const WrapperSkill = () => {
               icon={ArrowForwardCircleOutline}
               style={{
                 color: "#000000",
-                height: "100px",
-                width: "100px",
+                height: isMobile ? "60px" : "100px",
+                width: isMobile ? "60px" : "100px",
               }}
               title="fleche droite"
             />
           </Arrow>
-      </WapperCardContainer>
+        </WapperCardContainer>
       </WrapperCompetence>
     </WrapperSkillContainer>
   );

@@ -1,6 +1,6 @@
 import * as React from "react";
 import styled, { ThemeProvider } from "styled-components";
-import { darkTheme } from "./utils/themes";
+import { darkTheme } from "./utils/Themes";
 import Navbar from "./components/Navbar";
 import { BrowserRouter } from "react-router-dom";
 import HeroSection from "./components/sectionComponent/HeroSection";

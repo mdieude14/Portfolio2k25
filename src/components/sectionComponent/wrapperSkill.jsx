@@ -165,7 +165,7 @@ const Arrow = styled.div`
   }
 
   &.right {
-    margin-left: 5px;
+    margin-left: 10px;
   }
 `;
 
@@ -478,7 +478,7 @@ const WrapperSkill = () => {
               <Arrow className="left" onClick={() => handleArrowClick(-1)}>
                 <ArrowBackIcon
                   style={{
-                    color: "#000000",
+                    color: "#ffffff",
                     height: "100px",
                     width: "100px",
                   }}
@@ -491,7 +491,7 @@ const WrapperSkill = () => {
               <Arrow className="right" onClick={() => handleArrowClick(1)}>
                 <ArrowForwardIcon
                   style={{
-                    color: "#000000",
+                    color: "#ffffff",
                     height: "100px",
                     width: "100px",
                   }}
