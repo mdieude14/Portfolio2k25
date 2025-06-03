@@ -3,7 +3,7 @@ import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import styled from "styled-components";
 import { experiences } from "../../data/data/constants";
-import ExperienceCard from "../cards/ExperienceCard";
+import ExperienceCard from "../Cards/ExperienceCard";
 import Stars from "../Canvas/Stars"
 
 const Container = styled.div`

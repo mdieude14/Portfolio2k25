@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+//import React, { useState } from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/data/constants";
 import Typewriter from "typewriter-effect";
@@ -12,7 +12,7 @@ import {
 } from "../../utils/motion";
 import pdfFile from "../../assets/image/Dieude_Martin.pdf";
 import Stars from "../Canvas/Stars";
-const HeroContainer = styled.div`
+//const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
