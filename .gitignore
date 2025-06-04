@@ -25,3 +25,9 @@ dist-ssr
 
 build
 .env
+
+# variable environnement
+REACT_APP_EMAILJS_SERVICE_ID=service_ld7z4dj
+REACT_APP_EMAILJS_TEMPLATE_ID=template_agvqx44
+REACT_APP_EMAILJS_USER_ID=M5NFzf-8CjZpvDe_b
+

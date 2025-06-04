@@ -130,10 +130,10 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-        "service_ld7z4dj",
-        "template_agvqx44",
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         formRef.current,
-        "M5NFzf-8CjZpvDe_b"
+        process.env.REACT_APP_EMAILJS_USER_ID
       )
       .then(
         () => {
