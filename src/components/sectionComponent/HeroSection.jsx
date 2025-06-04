@@ -10,7 +10,7 @@ import {
   headContentAnimation,
   headTextAnimation,
 } from "../../utils/motion";
-import pdfFile from "../../assets/image/Dieude_Martin.pdf";
+import pdfFile from "../../assets/image/DieudeMartinCV _2025.pdf";
 import Stars from "../Canvas/Stars";
 const HeroContainer = styled.div`
   display: flex;
@@ -209,7 +209,7 @@ const HeroSection = () => {
 
       // Configuration du lien avec le PDF importé
       link.href = pdfFile;
-      link.download = "Dieude_Martin.pdf"; // Nom du fichier pour le téléchargement
+      link.download = "DieudeMartinCV _2025.pdf"; // Nom du fichier pour le téléchargement
       link.target = "_blank"; // Ouvre dans un nouvel onglet si le téléchargement direct échoue
 
       // Style pour cacher le lien
